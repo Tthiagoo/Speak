@@ -1,0 +1,123 @@
+.register-container {
+  width: 100%;
+  max-width: 1200px;
+  height: 90vh;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-container .content {
+  width: 100%;
+  padding: 50px;
+  background: #fcfcfc2c;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.39);
+  border-radius: 15px;
+
+  display: flex;
+  
+  align-items: center;
+  justify-content: space-between;
+
+  -webkit-box-shadow: 11px 9px 12px 6px rgba(0,0,0,0.75);
+	-moz-box-shadow: 11px 9px 12px 6px rgba(0,0,0,0.75);
+	box-shadow: 11px 9px 12px 6px rgba(0,0,0,0.75);
+  
+}
+
+.register-container .content section {
+  width: 100%;
+  max-width: 380px;
+}
+
+
+
+.register-container .content section p{
+  font-size: 25px;
+  color: #101011;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+
+}
+
+.register-container .content section .genero{
+display:flex;
+align-items: center;
+justify-content: center;
+
+}
+.register-container .content section .genero input{
+
+  margin-top:30px;
+  height: 25px;
+  width:25px;
+
+}
+
+#Imale, #Ifemale{
+  margin-top: 30px;
+  margin-left: 7px;
+  margin-right: 7px;
+}
+
+
+
+#foto{
+  border:1px dashed #101011;
+background-size: cover;
+cursor: pointer;
+height: 300px;
+border-radius: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+label#foto.has-foto{
+  border:0
+}
+
+label#foto.has-foto svg{
+  display:none;
+}
+
+
+#foto input{
+  display: none;
+}
+
+
+.register-container .content form {
+  width: 100%;
+  max-width: 450px;
+  
+  
+} 
+
+.register-container .content form input {
+  margin-top: 8px;
+  height: 60px;
+
+}
+
+.register-container .content form h1 {
+  margin-bottom: 20px;
+  
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-container .content form .input-group{
+  display: flex;
+}
+
+.register-container .content form .input-group input + input {
+  margin-left: 8px;
+}

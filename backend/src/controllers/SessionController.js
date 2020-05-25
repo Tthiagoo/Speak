@@ -7,8 +7,7 @@ module.exports = {
     if (!user) {
       user = await User.create({
         name, 
-        username, 
-        idade, 
+        username,  
         bio, 
         foto :filename, 
         sexo, 
