@@ -8,5 +8,6 @@ const routes = express.Router()
 const upload = multer(uploadConfig)
 
 routes.post('/sessions',upload.single('foto'), SessionController.store)
+routes.post('/login', SessionController.create)
 
 module.exports = routes;

@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import {useHistory } from 'react-router-dom';
 
 import api from '../../services/api';
 
@@ -13,6 +14,8 @@ export default function Cadastro() {
   const [userName, setUserName] = useState('')
   const [senha, setSenha] = useState('')
   const [description, setDescription] = useState('')
+
+  const history = useHistory()
 
   const preview = useMemo(() => {
     return foto ? URL.createObjectURL(foto) : null;
@@ -31,6 +34,8 @@ export default function Cadastro() {
     try {
       await api.post('/sessions', data)
       alert(`Seu nome de usuario é: ${userName} e senha: ${senha}`)
+      history.push('/')
+
 
     } catch(err){
       alert('error')
