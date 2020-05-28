@@ -2,7 +2,8 @@ import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import Login from './pages/Login';
-import Cadastro from './pages/Cadastro'
+import Cadastro from './pages/Cadastro';
+import Chat from './pages/Chat';
 
 export default function Routes() {
   return (
@@ -10,6 +11,8 @@ export default function Routes() {
       <Switch>
         <Route path="/" exact component={Login}/>
         <Route path="/cadastro" component={Cadastro}/>
+        <Route path="/chat" component={Chat}/>
+        
 
       </Switch>
     </BrowserRouter>
