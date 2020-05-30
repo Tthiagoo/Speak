@@ -106,42 +106,28 @@
 	height: 40px;
 	background-color: white;
 	border-radius: 15px;
+	border:none;
 }
+
+form input #texto{
+	margin-left: 0px;
+	margin-top: 0px;
+	display: flex;
+	width: 100%;
+	max-width: 1000px;
+	height: 40px;
+	background-color: white;
+	border-radius: 15px;
+	border:none;
+}
+
+
 
 .list {
-	margin: 0;
-	padding: 1rem;
-	flex-direction: column;
-
-
-
-	list-style: none;
-
-}
-
-
-.list-item-mine {
-	text-align: left;
-	margin-bottom: 80px;
 	
-}
-
-.list-item-other {
-	text-align: right;
-	margin-bottom: 67px;
-
-}
-.list-item-other::after {
-	content: "";
-	display: inline-block;
-	vertical-align: middle;
-	margin-right: -1px;
-	width: 0;
-	height: 0;
-
-	border-top: 10px solid transparent;
-	border-bottom: 0px solid transparent;
-	border-left: 10px solid #c3e88d;
+	padding: 1rem;
+	
+	
 }
 
 .message {
@@ -153,37 +139,7 @@
 	flex: 1 0 auto;
 }
 
-.message-other {
-	background: #c3e88d;
 
-	text-align: right;
-}
-
-.message-mine {
-	background: #89ddff;
-}
-
-.circle-other {
-	width: 30px;
-	height: 30px;
-	background-color: #40a977;
-	border-radius: 50%;
-	float: right;
-	margin-top: 13px;
-	margin-left: 5px;
-}
-.circle-mine {
-	display: inline-block;
-	border-radius: 50%;
-	height: 40px;
-	width: 40px;
-	background: #2671ff;
-	margin: 0 10px 10px 0;
-}
-
-/*
-/////////
-*/
 .flr {
 	flex: 1 0 auto;
 	display: flex;
@@ -191,17 +147,27 @@
 	width: calc(100% - 50px);
 }
 
-.msg {
+.msg-mine {
 	display: inline-block;
 	font-size: 11pt;
 	line-height: 13pt;
-	color: rgba(255, 255, 255, 0.7);
-	margin: 0 0 4px 0;
+	color: rgba(24, 3, 3, 0.7);
+	
 }
+
+.msg-other {
+	display: inline-block;
+	font-size: 13pt;
+	line-height: 13pt;
+	color: rgba(255, 255, 255, 0.7);
+	
+}
+
+
 
 .msg-box-mine {
 	display: flex;
-	background: #5b5e6c;
+	background: #89ddff;
 	padding: 10px 10px 0 10px;
 	border-radius: 15px;
 	float: left;
@@ -211,14 +177,14 @@
 	margin-right: 2000px;
 	
 	box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
-
+	margin-left: 10px;
 
 }
 
 
 .msg-box-other {
 	display: flex;
-	background: #5b5e6c;
+	background: #359143;
 	padding: 10px 10px 0 10px;
 	border-radius: 15px;
 	float: right;
@@ -227,8 +193,9 @@
 	margin-bottom: 20px;
 	margin-left: 200px;
 	
+	
 	box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
-
+margin-right: 10px;
 
 }
 .user-img {
@@ -238,4 +205,13 @@
 	width: 40px;
 	background: #2671ff;
 	margin: 0 10px 10px 0;
+}
+.user-img-other {
+	
+	border-radius: 50%;
+	height: 40px;
+	width: 40px;
+	background: #2671ff;
+	margin: 0 10px 10px 0;
+	float: left;
 }
