@@ -83,6 +83,8 @@
 	height: 100%;
 	max-height: 535px;
 	flex:auto;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 #divisao {
@@ -126,17 +128,24 @@ form input #texto{
 .list {
 	
 	padding: 1rem;
+	position: relative;
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 10px 0;
+    
+
+	
 	
 	
 }
 
 .message {
-	border-radius: 5px;
+	
 	display: inline-block;
-	list-style: none;
+	
 	margin-bottom: 1rem;
 	padding: 0.5rem 1rem;
-	flex: 1 0 auto;
+	
 }
 
 
@@ -152,8 +161,20 @@ form input #texto{
 	font-size: 11pt;
 	line-height: 13pt;
 	color: rgba(24, 3, 3, 0.7);
+	margin: 0 0 4px 0;
+	
+	
+	
 	
 }
+p{
+	max-width: 70%;
+	word-wrap: break-word;
+	white-space: nowrap;
+	
+}
+
+
 
 .msg-other {
 	display: inline-block;
@@ -171,13 +192,16 @@ form input #texto{
 	padding: 10px 10px 0 10px;
 	border-radius: 15px;
 	float: left;
-	max-width: 80%;
+	max-width: 70%;
 	width: auto;
 	margin-bottom: 20px;
 	margin-right: 2000px;
 	
 	box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
 	margin-left: 10px;
+
+	
+	
 
 }
 
@@ -191,7 +215,7 @@ form input #texto{
 	max-width: 80%;
 	width: auto;
 	margin-bottom: 20px;
-	margin-left: 200px;
+	margin-left: 2000px;
 	
 	
 	box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
@@ -205,13 +229,4 @@ margin-right: 10px;
 	width: 40px;
 	background: #2671ff;
 	margin: 0 10px 10px 0;
-}
-.user-img-other {
-	
-	border-radius: 50%;
-	height: 40px;
-	width: 40px;
-	background: #2671ff;
-	margin: 0 10px 10px 0;
-	float: left;
 }
