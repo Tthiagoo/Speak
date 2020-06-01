@@ -57,8 +57,6 @@ export default function Chat() {
                   </div>
                 </div>
               ))}
-
-
             </article>
           </div>
           <div id="divisao">
