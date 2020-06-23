@@ -16,7 +16,7 @@ export default function Chat() {
   const [msg, stateMsg] = useState('');
   const [mensagens, stateMensagens] = useState([]);
 
-      
+
 
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export default function Chat() {
       stateMensagens([...mensagens, newMessage])
     socket.on('chat.message', handleNewMessage)
     return () => socket.off('chat.message', handleNewMessage)
-    
+
   }, [mensagens])
 
 
@@ -47,6 +47,11 @@ export default function Chat() {
     <div className="chat-container">
       <div className="content">
         <div className="users">
+          <div id="perfil">
+            <div id="perfil-user">
+
+            </div>
+          </div>
         </div>
 
         <div className="principal">
@@ -77,7 +82,7 @@ export default function Chat() {
             <form onSubmit={HandleForm}>
               <input
                 id="texto"
-                placeholder="mensagem"
+
                 onChange={HandleSubmit}
                 style={{ width: 1000 }}
                 type="text"

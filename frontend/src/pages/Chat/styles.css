@@ -25,28 +25,28 @@
 
 .chat-container .content .users {
 	width: 100%;
-	max-width: 230px;
+	max-width: 300px;
 	height: 100%;
 	max-height: 700px;
 
 	border-top-left-radius: 15px;
 	border-bottom-left-radius: 15px;
 
-	background-image: linear-gradient(
-		to bottom,
-		#0a1046,
-		#0f1552,
-		#111855,
-		#0f1963,
-		#1b2779,
-		#222f83,
-		#29368e,
-		#303e98,
-		#3b49a2,
-		#4654ac,
-		#515fb6,
-		#5c6bc0
-	);
+	background-image: linear-gradient(to top, #298894, #208a8f, #1c8c8a, #1f8e82, #288f7a, #2d9074, #33916e, #3a9268, #3d9363, #42955d, #479657, #4d9750);
+}
+.chat-container .content .users #perfil{
+	border:solid red;
+	width: 100%;
+padding: 10px;
+	height: 100%;
+	max-height: 140px;
+}
+#perfil-user{
+	border:solid rgb(38, 0, 255);
+	width: 100%;
+	max-width: 220px;
+	height: 100%;
+	max-height: 50px;
 }
 
 .chat-container .content .principal {
@@ -82,7 +82,7 @@
 	max-width: 1090px;
 	height: 100%;
 	max-height: 535px;
-	flex:auto;
+	flex: auto;
 	overflow-y: auto;
 	overflow-x: hidden;
 	padding: 2rem;
@@ -94,7 +94,7 @@
 
 	justify-content: center;
 	align-items: center;
-	background-color: rgb(207, 207, 207);
+	background-color: rgb(175, 172, 172);
 	height: 65px;
 	margin-bottom: 0px;
 	border-bottom-right-radius: 10px;
@@ -109,10 +109,10 @@
 	height: 40px;
 	background-color: white;
 	border-radius: 15px;
-	border:none;
+	border: none;
 }
 
-form input #texto{
+form input #texto {
 	margin-left: 0px;
 	margin-top: 0px;
 	display: flex;
@@ -121,65 +121,49 @@ form input #texto{
 	height: 40px;
 	background-color: white;
 	border-radius: 15px;
-	border:none;
+	border: none;
 }
 
-.list-mine{
-	display:flex;
+.list-mine {
+	display: flex;
 	align-items: flex-start;
 	flex-direction: column;
 	margin-bottom: -20px;
-	
 }
-.list-other{
-	display:flex;
+.list-other {
+	display: flex;
 	align-items: flex-end;
 	flex-direction: column;
-
 }
 
-
-
-li{
+li {
 	list-style: none;
 	margin-bottom: 20px;
-
-	
 }
 
-
-
-
-
-.name-container-other{
+.name-container-other {
 	text-align: end;
 	margin-bottom: 12px;
 }
 
-.name-container-mine{
+.name-container-mine {
 	text-align: start;
 	margin-bottom: 12px;
 }
 
-
-
-
-.message-mine1{
-	 
+.message-mine1 {
 	background: #7e57c2;
-	font-family: 'open sans';
+	font-family: "open sans";
 	font-size: 0.85em;
-	line-height: 1.6em;  
+	line-height: 1.6em;
 	border-radius: 15px;
 
 	margin-top: 20px;
 	color: #fff;
 	padding: 20px;
-	
-	
 }
 
-.message-mine{
+.message-mine {
 	color: rgb(56, 55, 55);
 	padding: 15px;
 	line-height: 26px;
@@ -188,108 +172,48 @@ li{
 	margin-bottom: 30px;
 	position: relative;
 	width: auto;
-	background: #94C2ED;
-
+	background: #94c2ed;
 }
-.message-mine::after{
+.message-mine::after {
 	bottom: 100%;
-    left: 20px;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-    border-bottom-color: #94C2ED;
-    border-width: 10px;
-		margin-left: -10px;
-		
-
+	left: 20px;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-bottom-color: #94c2ed;
+	border-width: 10px;
+	margin-left: -10px;
 }
 
-
-.message-other{
+.message-other {
 	color: white;
 	padding: 15px;
 	line-height: 26px;
 	font-size: 16px;
 	border-radius: 8px;
 	margin-bottom: 30px;
-align-self: flex-end;
+	align-self: flex-end;
 	position: relative;
 	background: rgb(49, 145, 66);
-
 }
 
-.message-other::before{
+.message-other::before {
 	bottom: 100%;
 	right: 20px;
-    align-items: flex-start;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-    border-bottom-color: rgb(49, 145, 66);
-    border-width: 10px;
-		margin-left: -10px;
-		
-
+	align-items: flex-start;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-bottom-color: rgb(49, 145, 66);
+	border-width: 10px;
+	margin-left: -10px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .flr1 {
 	flex: 1 0 auto;
@@ -304,29 +228,19 @@ align-self: flex-end;
 	line-height: 13pt;
 	color: rgba(24, 3, 3, 0.7);
 	margin: 0 0 4px 0;
-	
-	
-	
-	
 }
-p{
+p {
 	max-width: 70%;
 	word-wrap: break-word;
 	white-space: nowrap;
-	
 }
 
-
-
-.msg-other1{
+.msg-other1 {
 	display: inline-block;
 	font-size: 13pt;
 	line-height: 13pt;
 	color: rgba(255, 255, 255, 0.7);
-	
 }
-
-
 
 .msg-box-mine1 {
 	display: flex;
@@ -340,14 +254,10 @@ p{
 	width: 100%;
 	margin-bottom: 20px;
 	margin-right: 2000px;
-	
+
 	box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
 	margin-left: 10px;
-	
-	
-
 }
-
 
 .msg-box-other1 {
 	display: flex;
@@ -359,11 +269,9 @@ p{
 	width: auto;
 	margin-bottom: 20px;
 	margin-left: 2000px;
-	
-	
-	box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
-margin-right: 10px;
 
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+	margin-right: 10px;
 }
 .user-img1 {
 	display: inline-block;
@@ -374,7 +282,7 @@ margin-right: 10px;
 	margin: 0 10px 10px 0;
 }
 
-#nome1{
+#nome1 {
 	margin-bottom: 10px;
 	display: block;
 }
