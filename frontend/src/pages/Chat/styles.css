@@ -25,28 +25,217 @@
 
 .chat-container .content .users {
 	width: 100%;
-	max-width: 300px;
+	max-width: 330px;
 	height: 100%;
-	max-height: 700px;
+	max-height: 710px;
 
 	border-top-left-radius: 15px;
 	border-bottom-left-radius: 15px;
 
-	background-image: linear-gradient(to top, #298894, #208a8f, #1c8c8a, #1f8e82, #288f7a, #2d9074, #33916e, #3a9268, #3d9363, #42955d, #479657, #4d9750);
+	background-image: linear-gradient(
+		to top,
+		#26a69a,
+		#29ab94,
+		#32af8d,
+		#40b383,
+		#50b779,
+		#5cba74,
+		#68bd6e,
+		#74bf68,
+		#7ec267,
+		#88c666,
+		#92c966,
+		#9ccc65
+	);
 }
-.chat-container .content .users #perfil{
-	border:solid red;
+.chat-container .content .users #perfil {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
 	width: 100%;
-padding: 10px;
+	padding: 19px;
 	height: 100%;
-	max-height: 140px;
+	max-height: 150px;
 }
-#perfil-user{
-	border:solid rgb(38, 0, 255);
+#perfil-user {
+	display: flex;
+
 	width: 100%;
-	max-width: 220px;
+	max-width: 250px;
+	height: 100%;
+	max-height: 70px;
+}
+
+#perfil-user-photo {
+	width: 45px;
+	height: 45px;
+	background-color: #40a977;
+	border-radius: 50%;
+}
+#info {
+	display: flex;
+	flex-direction: column;
+}
+#perfil-user-name {
+	margin-top: 12px;
+	margin-left: 10px;
+	font-size: 15px;
+	font-weight: bold;
+	height: 10px;
+	color: white;
+}
+
+#perfil-user-status {
+	margin-top: 10px;
+	margin-left: 11px;
+	margin-right: 6px;
+	color: white;
+	font-size: 12px;
+}
+
+#perfil-config {
+	display: flex;
+
+	width: 100%;
+	max-width: 30px;
 	height: 100%;
 	max-height: 50px;
+	align-items: center;
+	justify-content: center;
+}
+
+#search {
+	position: relative;
+	top: 10px;
+	left: 24px;
+	color: rgba(0, 0, 0, 0.178);
+}
+
+#perfil-search {
+	justify-content: start;
+	display: flex;
+	flex-direction: row-reverse;
+	width: 100%;
+
+	height: auto;
+}
+.chat-container .content .users #perfil input {
+	position: relative;
+	right: 6px;
+	width: 100%;
+	height: 35px;
+	font-size: 15px;
+	border-radius: 18px;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.103);
+	border: transparent;
+	margin-bottom: 18px;
+
+	padding-left: 36px;
+	padding-right: 10px;
+}
+
+.chat-container .content .users #friends {
+	display: flex;
+	flex-direction: column;
+
+	width: 100%;
+	height: auto;
+}
+
+#friends-add {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	padding-left: 22px;
+	padding-right: 22px;
+}
+
+#friends-add span {
+	font-size: 15px;
+	color: white;
+	font-weight: bold;
+}
+
+#friends-list {
+	margin-top: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.103);
+	overflow-x: auto;
+}
+#friends-list ul {
+	display: flex;
+	flex-direction: row;
+}
+#friends-list ul li {
+	margin-bottom: 0px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+#friends-list ul li .friends-list-photo {
+	width: 45px;
+	height: 45px;
+	background-color: #40a977;
+	border-radius: 50%;
+}
+
+#friends-list ul li .friends-list-photo .status-user {
+	position: relative;
+	left: 34px;
+}
+.chat-container .content .users #conected {
+	width: 100%;
+	height: 100%;
+	max-height: 356px;
+
+	font-size: 15px;
+	font-weight: bold;
+	color: white;
+	padding: 18px;
+}
+
+#conected-list {
+	overflow-y: auto;
+	max-height: 325px;
+}
+#conected ul {
+	width: 100%;
+	height: auto;
+}
+#conected ul li .conected-users {
+	
+	margin-top: 15px;
+	border: solid #29ab94 1px;
+	margin-bottom: 15px;
+	width: 100%;
+	height: auto;
+	display: flex;
+}
+
+#conected ul li .conected-users .conected-users-photo {
+	width: 45px;
+	height: 45px;
+	background-color: #0f5835;
+	border-radius: 50%;
+}
+
+#conected-user-name {
+	position: relative;
+	top: 7px;
+	left: 10px;
+}
+
+#Descrição {
+	position: relative;
+	font-size: 10px;
+	top: 21px;
+	right: 85px;
 }
 
 .chat-container .content .principal {
@@ -105,7 +294,7 @@ padding: 10px;
 	margin-top: 0px;
 	display: flex;
 	width: 100%;
-	max-width: 1000px;
+	max-width: 800px;
 	height: 40px;
 	background-color: white;
 	border-radius: 15px;

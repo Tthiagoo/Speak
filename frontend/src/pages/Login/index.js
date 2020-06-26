@@ -37,7 +37,7 @@ export default function Login() {
       <section className="form">
 
         <form onSubmit={handleSubmit}>
-          <a id="Logo" href="https://fontmeme.com/pt/fontes-de-letras-cursivas/"><img src="https://fontmeme.com/permalink/200525/75d0fecd03494c368addba67c07e43a1.png" alt="fontes-de-letras-cursivas" border="0" /></a>
+          <a id="Logo"><img src="https://fontmeme.com/permalink/200525/75d0fecd03494c368addba67c07e43a1.png" alt="fontes-de-letras-cursivas" border="0" /></a>
           <h1>Faça seu login</h1>
           <input placeholder="Seu Username"
             value={username}
