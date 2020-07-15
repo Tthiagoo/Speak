@@ -7,7 +7,16 @@ import './styles.css'
 
 
 const socket = io('http://localhost:3333')
-socket.on('connect', () => console.log('[IO]conectou'))
+
+
+socket.on('connect', () => {
+
+  console.log('[IO]conectou')
+  socket.on('entrar',{})
+  socket.on("updateUsers", function(usuarios) {
+    console.log(usuarios)
+  })
+})
 
 
 const myId = uuid()
@@ -86,8 +95,6 @@ export default function Chat() {
                 <li >
                   <div className="friends-list-photo"><FaCircle size={10} color={"green"} className={"status-user"} /></div>
                 </li>
-
-
               </ul>
             </div>
           </div>
@@ -96,52 +103,65 @@ export default function Chat() {
             <div id="conected-list">
               <ul >
                 <li>
-                  <div className="conected-users">
-                    <div className="conected-users-photo"> </div>
-                    <div id="info-user">
-                      <span id="conected-user-name">Thiago Pereira</span>
-                      <span id="Descrição">Descrição do usuario</span>
+                  <div className="conected-list-users">
+                    <div className="conected-list-users-photo"> </div>
+                    <div className="info-user">
+                      <span className="conected-list-user-name">Thiago Pereira</span>
+                      <span className="conected-list-user-description">Descrição do usuario</span>
                     </div>
-                   
-                  </div>
-                </li>
-                <li>
-                  <div className="conected-users">
-                    <div className="conected-users-photo">
-                    </div>
-                    <div id="info-user">
-                      <span id="conected-user-name">Thiago Pereira</span>
-                      <span id="Descrição">Descrição do usuario</span>
+                    <div className="info-status">
+                      <FaCircle size={10} color={"yellow"} className="status-circle" />
+                      <span>2 min</span>
                     </div>
                   </div>
                 </li>
                 <li>
-                  <div className="conected-users">
-                  <div className="conected-users-photo"></div>
-                    <div id="info-user">
-                      <span id="conected-user-name">Thiago Pereira</span>
-                      <span id="Descrição">Descrição do usuario</span>
+                  <div className="conected-list-users">
+                    <div className="conected-list-users-photo"> </div>
+                    <div className="info-user">
+                      <span className="conected-list-user-name">Thiago Pereira</span>
+                      <span className="conected-list-user-description">Descrição do usuario</span>
                     </div>
-                    
-                    
                   </div>
                 </li>
                 <li>
-                  <div className="conected-users">
-                  <div className="conected-users-photo"></div>
-                    <div id="info-user">
-                      <span id="conected-user-name">Thiago Pereira</span>
-                      <span id="Descrição">Descrição do usuario</span>
-                    
-                   
+                  <div className="conected-list-users">
+                    <div className="conected-list-users-photo"> </div>
+                    <div className="info-user">
+                      <span className="conected-list-user-name">Thiago Pereira</span>
+                      <span className="conected-list-user-description">Descrição do usuario</span>
                     </div>
                   </div>
                 </li>
-
-
+                <li>
+                  <div className="conected-list-users">
+                    <div className="conected-list-users-photo"> </div>
+                    <div className="info-user">
+                      <span className="conected-list-user-name">Thiago Pereira</span>
+                      <span className="conected-list-user-description">Descrição do usuario</span>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div className="conected-list-users">
+                    <div className="conected-list-users-photo"> </div>
+                    <div className="info-user">
+                      <span className="conected-list-user-name">Thiago Pereira</span>
+                      <span className="conected-list-user-description">Descrição do usuario</span>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div className="conected-list-users">
+                    <div className="conected-list-users-photo"> </div>
+                    <div className="info-user">
+                      <span className="conected-list-user-name">Thiago Pereira</span>
+                      <span className="conected-list-user-description">Descrição do usuario</span>
+                    </div>
+                  </div>
+                </li>
               </ul>
             </div>
-
           </div>
         </div>
 
@@ -150,21 +170,14 @@ export default function Chat() {
 
             {mensagens.map((m, index) => (
               <ul className={`list-${m.id === myId ? 'mine' : 'other'}`} key={index}>
-
                 <li className="message" >
-
                   <div className={`name-container-${m.id === myId ? 'mine' : 'other'}`} >
                     <span className="user" style={{ fontSize: 12 }}><b>user</b></span>
                   </div>
-
                   <div className={`message-${m.id === myId ? 'mine' : 'other'}`} >
                     <p>{m.msg}</p>
-
                   </div>
-
-
                 </li>
-
               </ul>
             ))}
 

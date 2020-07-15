@@ -25,7 +25,7 @@
 
 .chat-container .content .users {
 	width: 100%;
-	max-width: 330px;
+	max-width: 370px;
 	height: 100%;
 	max-height: 710px;
 
@@ -208,34 +208,58 @@
 	width: 100%;
 	height: auto;
 }
-#conected ul li .conected-users {
+#conected ul li .conected-list-users {
 	
 	margin-top: 15px;
-	border: solid #29ab94 1px;
+	
 	margin-bottom: 15px;
 	width: 100%;
 	height: auto;
 	display: flex;
 }
 
-#conected ul li .conected-users .conected-users-photo {
+#conected ul li .conected-list-users .conected-list-users-photo{
 	width: 45px;
 	height: 45px;
 	background-color: #0f5835;
 	border-radius: 50%;
 }
+.info-user{
+	
+	max-width: 240px;
+	width: 100%;
 
-#conected-user-name {
+}
+
+.conected-list-user-name {
 	position: relative;
 	top: 7px;
 	left: 10px;
 }
 
-#Descrição {
+.conected-list-user-description {
 	position: relative;
 	font-size: 10px;
 	top: 21px;
 	right: 85px;
+}
+
+.info-status{
+	display: flex;
+	flex-direction: column;
+	
+	margin-top: 8px;
+	justify-self: flex-end;
+	float: right;
+}
+
+.info-status .status-circle{
+	position: relative;
+	left: 8px;
+}
+
+.info-status span{
+	font-size: 10px;
 }
 
 .chat-container .content .principal {

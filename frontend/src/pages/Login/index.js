@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Link , useHistory } from 'react-router-dom';
 import api from '../../services/api'
-
+import io from 'socket.io-client';
 import { FaSignInAlt } from 'react-icons/fa'
 
 import './styles.css'
+
+const socket = io('http://localhost:3333')
 
 
 export default function Login() {
@@ -17,12 +19,18 @@ export default function Login() {
     e.preventDefault()
     try {
       const response = await api.post('login', { username, senha })
-      console.log(response.data)
+      //console.log(response.data)
+      
+
       localStorage.setItem('name',response.data.name)
       localStorage.setItem('username',response.data.username)
       localStorage.setItem('bio',response.data.bio)
       localStorage.setItem('foto_url',response.data.foto_url)
       history.push('/chat')
+
+      socket.emit("entrar",{
+        username:response.data.username
+      })
       
       alert('deu certo')
     } catch (err) {
