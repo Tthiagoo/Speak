@@ -9,14 +9,14 @@ import './styles.css'
 const socket = io('http://localhost:3333')
 
 
-socket.on('connect', () => {
 
+socket.on('connect', () => {
+  
   console.log('[IO]conectou')
-  socket.on('entrar',{})
-  socket.on("updateUsers", function(usuarios) {
-    console.log(usuarios)
-  })
+
+
 })
+
 
 
 const myId = uuid()
@@ -25,15 +25,24 @@ export default function Chat() {
 
   const [msg, stateMsg] = useState('');
   const [mensagens, stateMensagens] = useState([]);
+  const [user, stateUser] = useState('')
 
+  useEffect(() => {
+    socket.on('entrar',Name=>{
+      const{username} = Name
+      stateUser(username)
 
+    })
+    
+  }, [user])
 
-
+  //renderiza as msgs
   useEffect(() => {
     const handleNewMessage = (newMessage) =>
       stateMensagens([...mensagens, newMessage])
     socket.on('chat.message', handleNewMessage)
     return () => socket.off('chat.message', handleNewMessage)
+
 
   }, [mensagens])
 
@@ -42,11 +51,16 @@ export default function Chat() {
   const HandleSubmit = event => stateMsg(event.target.value)
 
   const HandleForm = event => {
+
+
     event.preventDefault()
+
     if (msg.trim()) {
       socket.emit('chat.message', {
         id: myId,
-        msg
+        msg,
+        user:user
+
       })
       stateMsg('')
     }
@@ -172,7 +186,7 @@ export default function Chat() {
               <ul className={`list-${m.id === myId ? 'mine' : 'other'}`} key={index}>
                 <li className="message" >
                   <div className={`name-container-${m.id === myId ? 'mine' : 'other'}`} >
-                    <span className="user" style={{ fontSize: 12 }}><b>user</b></span>
+            <span className="user" style={{ fontSize: 12 }}><b>{user}</b></span>
                   </div>
                   <div className={`message-${m.id === myId ? 'mine' : 'other'}`} >
                     <p>{m.msg}</p>

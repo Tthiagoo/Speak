@@ -364,27 +364,17 @@ li {
 	margin-bottom: 12px;
 }
 
-.message-mine1 {
-	background: #7e57c2;
-	font-family: "open sans";
-	font-size: 0.85em;
-	line-height: 1.6em;
-	border-radius: 15px;
 
-	margin-top: 20px;
-	color: #fff;
-	padding: 20px;
-}
 
 .message-mine {
 	color: rgb(56, 55, 55);
 	padding: 15px;
-	line-height: 26px;
-	font-size: 16px;
+	
+	font-size: 13px;
 	border-radius: 8px;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 	position: relative;
-	width: auto;
+	
 	background: #94c2ed;
 }
 .message-mine::after {
@@ -404,8 +394,8 @@ li {
 .message-other {
 	color: white;
 	padding: 15px;
-	line-height: 26px;
-	font-size: 16px;
+	
+	font-size: 13px;
 	border-radius: 8px;
 	margin-bottom: 30px;
 	align-self: flex-end;
