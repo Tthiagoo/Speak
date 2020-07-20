@@ -1,72 +1,53 @@
 import React, { useEffect, useState } from 'react';
 import { FaBars, FaCircle, FaSearch, FaPlusCircle } from 'react-icons/fa'
-import io from 'socket.io-client';
-//import api from '../../services/api'
-import uuid from 'uuid/dist/v4'
+import queryString from 'query-string';
+import io from 'socket.io-client'
 import './styles.css'
 
-
-const socket = io('http://localhost:3333')
-
-
-
-socket.on('connect', () => {
-  
-  console.log('[IO]conectou')
+import Tab from './Tab'
+import TabItem from './Tab/TabItem';
 
 
-})
+let socket
 
+export default function Chat({ location }) {
 
-
-const myId = uuid()
-
-export default function Chat() {
-
-  const [msg, stateMsg] = useState('');
-  const [mensagens, stateMensagens] = useState([]);
-  const [user, stateUser] = useState('')
+  const [username, setUserName] = useState('')
+  const [room, setRoom] = useState('')
+  const [message, setMessage] = useState([])
+  const [messages, setMessages] = useState([])
+  const ENDPOINT = 'localhost:3333'
 
   useEffect(() => {
-    socket.on('entrar',Name=>{
-      const{username} = Name
-      stateUser(username)
+    const { username, room } = queryString.parse(location.search)
+
+    socket = io(ENDPOINT)
+    setUserName(username)
+    setRoom(room)
+
+    socket.emit('join', { username, room }, () => {
 
     })
-    
-  }, [user])
+    return () => {
+      socket.emit('disconnect')
+      socket.off()
+    }
 
-  //renderiza as msgs
+  }, [ENDPOINT, location.search])
+
   useEffect(() => {
-    const handleNewMessage = (newMessage) =>
-      stateMensagens([...mensagens, newMessage])
-    socket.on('chat.message', handleNewMessage)
-    return () => socket.off('chat.message', handleNewMessage)
+    socket.on('message', (message) => {
+      setMessages([...messages, message])
+    })
+  }, [messages])
 
-
-  }, [mensagens])
-
-
-
-  const HandleSubmit = event => stateMsg(event.target.value)
-
-  const HandleForm = event => {
-
-
+  const sendMessage = (event) => {
     event.preventDefault()
-
-    if (msg.trim()) {
-      socket.emit('chat.message', {
-        id: myId,
-        msg,
-        user:user
-
-      })
-      stateMsg('')
+    if (message) {
+      socket.emit('sendMessage', message, () => setMessage(''))
     }
   }
-
-
+  console.log(message, messages)
   return (
     <div className="chat-container">
       <div className="content">
@@ -181,33 +162,13 @@ export default function Chat() {
 
         <div className="principal">
           <div className="chat">
-
-            {mensagens.map((m, index) => (
-              <ul className={`list-${m.id === myId ? 'mine' : 'other'}`} key={index}>
-                <li className="message" >
-                  <div className={`name-container-${m.id === myId ? 'mine' : 'other'}`} >
-            <span className="user" style={{ fontSize: 12 }}><b>{user}</b></span>
-                  </div>
-                  <div className={`message-${m.id === myId ? 'mine' : 'other'}`} >
-                    <p>{m.msg}</p>
-                  </div>
-                </li>
-              </ul>
-            ))}
-
+            <Tab room={room} />
           </div>
+
           <div id="divisao">
-            <form onSubmit={HandleForm}>
-              <input
-                id="texto"
-
-                onChange={HandleSubmit}
-                style={{ width: 1000 }}
-                type="text"
-                value={msg}
-              />
-            </form>
-
+            <input id="texto" type="text" value={message}
+              onChange={(event) => setMessage(event.target.value)}
+              onKeyPress={event => event.key === 'Enter' ? sendMessage(event) : null} />
           </div>
         </div>
 

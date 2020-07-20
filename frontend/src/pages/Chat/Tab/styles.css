@@ -1,0 +1,23 @@
+.TabContainer {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	background-image: linear-gradient(to right, #45a24a, #429e46, #3e9a42, #3b963f, #37923b, #2d8e3f, #228943, #158546, #007e4f, #007856, #00705a, #00695c);
+	border-radius: 0px 10px 0 0;
+	height: 40px;
+	width: 100%;
+}
+
+
+
+.rightInnerContainer {
+	display: flex;
+	flex: 0.5;
+	justify-content: flex-end;
+  margin-right: 5%;
+  border: solid blue 1px;
+}
+
+.onlineIcon {
+	margin-right: 5%;
+}
