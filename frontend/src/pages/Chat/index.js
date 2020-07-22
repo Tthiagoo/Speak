@@ -2,21 +2,37 @@ import React, { useEffect, useState } from 'react';
 import { FaBars, FaCircle, FaSearch, FaPlusCircle } from 'react-icons/fa'
 import queryString from 'query-string';
 import io from 'socket.io-client'
-import './styles.css'
 
-import Tab from './Tab'
-import TabItem from './Tab/TabItem';
+import api from '../../services/api';
+
+
+import './styles.css'
+import Tab from './components/Tab'
+import Input from './components/Input';
+import Messages from './components/Messages';
+import ContainerUsers from './components/ContainerUsers'
+import Perfil from './components/Perfil'
+import FriendsList from './components/FriendsList'
+import ConectedList from './components/ConectedList'
 
 
 let socket
 
 export default function Chat({ location }) {
 
+
+
   const [username, setUserName] = useState('')
   const [room, setRoom] = useState('')
+  const [users, setUsers] = useState('');
   const [message, setMessage] = useState([])
   const [messages, setMessages] = useState([])
   const ENDPOINT = 'localhost:3333'
+
+  const name = localStorage.getItem('name')
+  const foto = localStorage.getItem('foto_url')
+  console.log(name)
+
 
   useEffect(() => {
     const { username, room } = queryString.parse(location.search)
@@ -36,10 +52,14 @@ export default function Chat({ location }) {
   }, [ENDPOINT, location.search])
 
   useEffect(() => {
-    socket.on('message', (message) => {
-      setMessages([...messages, message])
-    })
-  }, [messages])
+    socket.on('message', message => {
+      setMessages(messages => [...messages, message]);
+    });
+
+    socket.on("roomData", ({ users }) => {
+      setUsers(users);
+    });
+  }, []);
 
   const sendMessage = (event) => {
     event.preventDefault()
@@ -47,129 +67,22 @@ export default function Chat({ location }) {
       socket.emit('sendMessage', message, () => setMessage(''))
     }
   }
-  console.log(message, messages)
+
   return (
     <div className="chat-container">
       <div className="content">
         <div className="users">
-          <div id="perfil">
-            <div id="perfil-user">
-              <div id="perfil-user-photo"></div>
-              <div id="info">
-                <span id="perfil-user-name">Thiago Pereira</span>
-                <span id="perfil-user-status">Online <FaCircle size={6} color={"green"} /></span>
-              </div>
-            </div>
-            <div id="perfil-config">
-              <FaBars size={23} color={"white"} />
-            </div>
-            <div id="perfil-search">
-              <input type="text" placeholder="Pesquise um nome de usuario" />
-              <FaSearch id="search" size={15} />
-            </div>
-          </div>
-          <div id="friends">
-            <div id="friends-add">
-              <span>Amigos</span>
-              <FaPlusCircle color={"white"} size={20} />
-            </div>
-            <div id="friends-list">
-              <ul>
-                <li >
-                  <div className="friends-list-photo"><FaCircle size={10} color={"green"} className={"status-user"} /></div>
-                </li>
-                <li >
-                  <div className="friends-list-photo"><FaCircle size={10} color={"red"} className={"status-user"} /></div>
-                </li>
-                <li >
-                  <div className="friends-list-photo"><FaCircle size={10} color={"yellow"} className={"status-user"} /></div>
-                </li>
-                <li >
-                  <div className="friends-list-photo"><FaCircle size={10} color={"yellow"} className={"status-user"} /></div>
-                </li>
-                <li >
-                  <div className="friends-list-photo"><FaCircle size={10} color={"green"} className={"status-user"} /></div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div id="conected">
-            <span>Usuarios Na Sala</span>
-            <div id="conected-list">
-              <ul >
-                <li>
-                  <div className="conected-list-users">
-                    <div className="conected-list-users-photo"> </div>
-                    <div className="info-user">
-                      <span className="conected-list-user-name">Thiago Pereira</span>
-                      <span className="conected-list-user-description">Descrição do usuario</span>
-                    </div>
-                    <div className="info-status">
-                      <FaCircle size={10} color={"yellow"} className="status-circle" />
-                      <span>2 min</span>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div className="conected-list-users">
-                    <div className="conected-list-users-photo"> </div>
-                    <div className="info-user">
-                      <span className="conected-list-user-name">Thiago Pereira</span>
-                      <span className="conected-list-user-description">Descrição do usuario</span>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div className="conected-list-users">
-                    <div className="conected-list-users-photo"> </div>
-                    <div className="info-user">
-                      <span className="conected-list-user-name">Thiago Pereira</span>
-                      <span className="conected-list-user-description">Descrição do usuario</span>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div className="conected-list-users">
-                    <div className="conected-list-users-photo"> </div>
-                    <div className="info-user">
-                      <span className="conected-list-user-name">Thiago Pereira</span>
-                      <span className="conected-list-user-description">Descrição do usuario</span>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div className="conected-list-users">
-                    <div className="conected-list-users-photo"> </div>
-                    <div className="info-user">
-                      <span className="conected-list-user-name">Thiago Pereira</span>
-                      <span className="conected-list-user-description">Descrição do usuario</span>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div className="conected-list-users">
-                    <div className="conected-list-users-photo"> </div>
-                    <div className="info-user">
-                      <span className="conected-list-user-name">Thiago Pereira</span>
-                      <span className="conected-list-user-description">Descrição do usuario</span>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
+          <Perfil foto={foto} name={name}/>
+          <FriendsList/>
+          <ConectedList/>
         </div>
-
         <div className="principal">
           <div className="chat">
             <Tab room={room} />
+            <Messages messages={messages} username={username} />
           </div>
-
-          <div id="divisao">
-            <input id="texto" type="text" value={message}
-              onChange={(event) => setMessage(event.target.value)}
-              onKeyPress={event => event.key === 'Enter' ? sendMessage(event) : null} />
-          </div>
+          <Input message={message} sendMessage={sendMessage} setMessage={setMessage} />
+          <ContainerUsers users={users} />
         </div>
 
       </div>

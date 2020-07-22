@@ -1,0 +1,53 @@
+#friends {
+	display: flex;
+	flex-direction: column;
+
+	width: 100%;
+	height: auto;
+}
+
+#friends-add {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	padding-left: 22px;
+	padding-right: 22px;
+}
+
+#friends-add span {
+	font-size: 15px;
+	color: white;
+	font-weight: bold;
+}
+
+#friends-list {
+	margin-top: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.103);
+	overflow-x: auto;
+}
+#friends-list ul {
+	display: flex;
+	flex-direction: row;
+	list-style: none;
+}
+#friends-list ul li {
+	margin-bottom: 0px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+#friends-list ul li .friends-list-photo {
+	width: 45px;
+	height: 45px;
+	background-color: #40a977;
+	border-radius: 50%;
+}
+
+#friends-list ul li .friends-list-photo .status-user {
+	position: relative;
+	left: 34px;
+}

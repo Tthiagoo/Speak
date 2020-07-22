@@ -1,0 +1,25 @@
+#divisao {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(175, 172, 172);
+	height: 66px;
+	margin-bottom: 0px;
+	border-bottom-right-radius: 10px;
+}
+
+#texto {
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 0px;
+	display: flex;
+	width: 100%;
+	max-width: 800px;
+	height: 40px;
+	background-color: white;
+	border-radius: 15px;
+	border: none;
+	padding: 8px;
+	color: black;
+}

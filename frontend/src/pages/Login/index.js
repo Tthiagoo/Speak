@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { Link, useHistory} from 'react-router-dom';
 import api from '../../services/api'
-import io from 'socket.io-client';
+
 import { FaSignInAlt } from 'react-icons/fa'
 
 import './styles.css'
-
-
-
-
 
 export default function Login() {
   const [username, setUserName] = useState('')
