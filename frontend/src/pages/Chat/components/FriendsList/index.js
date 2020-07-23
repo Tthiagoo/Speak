@@ -7,7 +7,7 @@ export default function FriendsList() {
     <div id="friends">
       <div id="friends-add">
         <span>Amigos</span>
-        <FaPlusCircle color={"white"} size={20} />
+        <FaPlusCircle color={"white"} size={20} id="FaPlusCircle" />
       </div>
       <div id="friends-list">
         <ul>

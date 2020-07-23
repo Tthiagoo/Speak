@@ -2,7 +2,7 @@ import React from 'react'
 import { FaCircle } from 'react-icons/fa';
 import './styles.css'
 
-export default function ConectedList() {
+export default function ConectedList({users}) {
   return (
     <div id="conected">
       <span>Usuarios Na Sala</span>

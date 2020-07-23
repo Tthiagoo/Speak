@@ -74,7 +74,7 @@ export default function Chat({ location }) {
         <div className="users">
           <Perfil foto={foto} name={name}/>
           <FriendsList/>
-          <ConectedList/>
+          <ConectedList />
         </div>
         <div className="principal">
           <div className="chat">

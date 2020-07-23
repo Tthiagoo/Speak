@@ -7,13 +7,11 @@ import './styles.css';
 
 const ContainerUsers = ({ users }) => (
   <div className="textContainer">
-   
-    
     {
       users
         ? (
           <div>
-            <h1>People currently chatting:</h1>
+            
             <div className="activeContainer">
               <h2>
                 {users.map(({username}) => (

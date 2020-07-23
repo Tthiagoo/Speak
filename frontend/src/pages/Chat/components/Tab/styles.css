@@ -19,6 +19,10 @@
 
 }
 
+#FaTimesCircle{
+	display: flex;
+}
+
 .leftInnerContainer .tabItem{
   display: flex;
   border: solid 0px;
@@ -35,10 +39,12 @@
 
 .rightInnerContainer {
 	display: flex;
-	flex: 0.5;
-	justify-content: flex-end;
-  margin-right: 5%;
-  border: solid blue 1px;
+	
+	height: 100%;
+	width: 30px;
+	align-items: center;
+  
+ 
 }
 
 .onlineIcon {

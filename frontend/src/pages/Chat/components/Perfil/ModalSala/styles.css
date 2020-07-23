@@ -1,0 +1,19 @@
+#RoomName{
+  margin-top: 5px;
+  border-radius: 10px;
+  width: 100%;
+  font-size: 20px;
+  padding: 8px;
+  background-color: rgb(207, 207, 207);
+  border: none;
+}
+
+#RoomButton{
+  width: 100%;
+  margin-top: 8px;
+  border-radius: 10px;
+  border: none;
+  height: 30px;
+  background-color: rgb(20, 63, 128);
+  color: white;
+}
