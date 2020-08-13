@@ -16,10 +16,13 @@ import FriendsList from './components/FriendsList'
 import ConectedList from './components/ConectedList'
 
 
+
 let socket
 
-export default function Chat({ location }) {
 
+
+
+export default function Chat({ location }) {
 
 
   const [username, setUserName] = useState('')
@@ -30,11 +33,9 @@ export default function Chat({ location }) {
   const [name, setName] = useState('')
   const [foto, setFoto] = useState('')
 
+  const[data,setData] = useState({})
+
   const ENDPOINT = 'localhost:3333'
-
- 
-
-
 
 
 
@@ -43,30 +44,51 @@ export default function Chat({ location }) {
     setName(localStorage.getItem('name'))
     setFoto(localStorage.getItem('foto_url'))
     
-
-
+    
     socket = io(ENDPOINT)
     setUserName(username)
     setRoom(room)
+    
+    
+    
 
-    socket.emit('join', { username, room }, () => {
-
+    socket.on("responseData",(response)=>{
+      const {foto_url, name, bio} = response
+      console.log(foto_url, name, bio)
+      socket.emit('join',{ username, room, foto_url, name, bio }, () => {
+        console.log('join')
+      })
     })
+    
+    
+    
+    
+    
     return () => {
       socket.emit('disconnect')
       socket.off()
     }
 
   }, [ENDPOINT, location.search])
+  
+    
+  
 
   useEffect(() => {
+    
+
     socket.on('message', message => {
       setMessages(messages => [...messages, message]);
     });
 
     socket.on("roomData", ({ users }) => {
+      console.log(users)
       setUsers(users);
+      
+     
     });
+
+    
   }, []);
 
   const sendMessage = (event) => {
@@ -82,7 +104,7 @@ export default function Chat({ location }) {
         <div className="users">
           <Perfil foto={foto} name={name} />
           <FriendsList />
-          <ConectedList users={users} />
+          <ConectedList users={users}/>
         </div>
         <div className="principal">
           <div className="chat">

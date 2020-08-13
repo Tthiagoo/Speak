@@ -33,12 +33,13 @@ export default function Login() {
       localStorage.setItem('username', response.data.username)
       localStorage.setItem('bio', response.data.bio)
       localStorage.setItem('foto_url', response.data.foto_url)
-      
-      socket.emit('infoUser',response.data)
+    
       
       alert('deu certo')
      
       history.push(`/chat?username=${username}&room=${room}`) 
+      socket.emit('infoUser',response.data)
+
     } catch (err) {
       alert('error')
       

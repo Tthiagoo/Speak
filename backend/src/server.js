@@ -14,18 +14,22 @@ const { addUser, getUser, getUserInRoom, removeUser } = require('./usersFunction
 io.on('connection', socket => {
   console.log('[SOCKET]nova conexão')
   socket.on('infoUser',(response)=>{
-    socket.emit('infoResponse',response)
-    console.log(response)
+    const data = response;
+    io.emit('responseData',data)
+    console.log('emitiu infoUser')
+    
+    
+    
   })
 
-  socket.on('join', ({ username, room }, callback) => {
+  socket.on('join', ({ username, room, foto_url, name, bio }, callback) => {
     const { user, error } = addUser({ id: socket.id, username, room })
-
-
+    console.log(foto_url, name, bio)
     
     if (error) return callback(error)
 
-    socket.emit('message', { user: 'admin', text: `${user.username},bem vindo na sala:${user.room}` })
+    socket.emit('message',
+     { user: 'admin', text: `${user.username},bem vindo na sala:${user.room}` })
     socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.username} has joined!` });
 
     socket.join(user.room)

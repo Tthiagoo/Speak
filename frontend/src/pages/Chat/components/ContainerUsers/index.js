@@ -8,7 +8,7 @@ import api from '../../../../services/api'
 
 import './styles.css';
 
-export default function ContainerUsers({ users }) {
+export default function ContainerUsers({ users}) {
 
 
 
@@ -18,7 +18,7 @@ export default function ContainerUsers({ users }) {
         users
           ? (
             <ul>
-              {users.map(({ username, room }) => (
+              {users.map(({ username}) => (
 
                 <li key={username}>
 
@@ -27,7 +27,7 @@ export default function ContainerUsers({ users }) {
                     <div className="conected-list-users-photo"> </div>
                     <div className="info-user">
                       <span className="conected-list-user-name">{username}</span>
-                      <span className="conected-list-user-description">{room}</span>
+                      <span className="conected-list-user-description"></span>
                     </div>
                     <div className="info-status">
                       <FaCircle size={10} color={"yellow"} className="status-circle" />
