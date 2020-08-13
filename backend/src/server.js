@@ -10,14 +10,19 @@ const io = require('socket.io')(server)
 const { addUser, getUser, getUserInRoom, removeUser } = require('./usersFunction')
 
 
+
 io.on('connection', socket => {
   console.log('[SOCKET]nova conexão')
+  socket.on('infoUser',(response)=>{
+    socket.emit('infoResponse',response)
+    console.log(response)
+  })
 
   socket.on('join', ({ username, room }, callback) => {
     const { user, error } = addUser({ id: socket.id, username, room })
 
 
-    console.log(username, room)
+    
     if (error) return callback(error)
 
     socket.emit('message', { user: 'admin', text: `${user.username},bem vindo na sala:${user.room}` })

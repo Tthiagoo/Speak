@@ -26,6 +26,14 @@ module.exports = {
       return res.status(400).json({ error: 'no USER found with this username and password' })
     }
     return res.json(user)
+  },
+  async index(req, res){
+    const {username} = req.body
+    let user = await User.findOne({username})
+    if(!user){
+      return res.status(400).json({erro:"usuario nao encontrado"})
+    }
+    return res.json(user)
   }
 
 }

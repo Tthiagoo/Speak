@@ -1,33 +1,63 @@
-.textContainer {
+
+#conected ul {
+	width: 100%;
+	height: auto;
+}
+
+
+#conected li:hover{
+  background-color: rgba(0, 0, 0, 0.082);
+}
+
+#conected ul li .conected-list-users { 
+	
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 100%;
+	height: auto;
+  display: flex;
+  
+}
+
+
+#conected ul li .conected-list-users .conected-list-users-photo{
+	width: 50px;
+	height: 50px;
+	
+	border-radius: 50%;
+}
+.info-user{
+  margin-top: 8px;
+	margin-left: 8px;
+	max-width: 240px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  margin-left: 100px;
-  color: white;
-  height: 60%;
-  justify-content: space-between;
+
 }
 
-.activeContainer {
-  display: flex;
-  align-items: center;
-  margin-bottom: 50%;
+.conected-list-user-description {
+	
+	font-size: 10px;
+	
+	
 }
-
-.activeItem {
-  display: flex;
-  align-items: center;
+.info-status{
+	display: flex;
+	flex-direction: column;
+	
+	margin-top: 8px;
+	justify-self: flex-end;
+	float: right;
 }
-
-.activeContainer img {
-  padding-left: 10px;
+.info-status .status-circle{
+	position: relative;
+	left: 8px;
 }
-
-.textContainer h1 {
-  margin-bottom: 0px;
+.info-status span{
+	font-size: 10px;
 }
-
-@media (min-width: 320px) and (max-width: 1200px) {
-  .textContainer {
-    display: none;
-  }
+.linha{
+  
+  border: 0.1px solid #8e919079;
 }

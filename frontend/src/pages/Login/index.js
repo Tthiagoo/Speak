@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import { Link, useHistory} from 'react-router-dom';
 import api from '../../services/api'
+import io from 'socket.io-client'
 
 import { FaSignInAlt } from 'react-icons/fa'
 
 import './styles.css'
 
+let socket
+
 export default function Login() {
   const [username, setUserName] = useState('')
   const [senha, setSenha] = useState('')
   const room = 'Main'
+  const ENDPOINT = 'localhost:3333'
   
 
   const history = useHistory()
@@ -20,16 +24,20 @@ export default function Login() {
   async function handleSubmit(e) {
     e.preventDefault()
     try {
+      socket = io(ENDPOINT)
+      
       const response = await api.post('login', { username, senha })
+      
 
       localStorage.setItem('name', response.data.name)
       localStorage.setItem('username', response.data.username)
       localStorage.setItem('bio', response.data.bio)
       localStorage.setItem('foto_url', response.data.foto_url)
-
+      
+      socket.emit('infoUser',response.data)
       
       alert('deu certo')
-      console.log(username, senha)
+     
       history.push(`/chat?username=${username}&room=${room}`) 
     } catch (err) {
       alert('error')

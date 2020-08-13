@@ -10,7 +10,7 @@ import './styles.css'
 import Tab from './components/Tab'
 import Input from './components/Input';
 import Messages from './components/Messages';
-import ContainerUsers from './components/ContainerUsers'
+
 import Perfil from './components/Perfil'
 import FriendsList from './components/FriendsList'
 import ConectedList from './components/ConectedList'
@@ -27,15 +27,23 @@ export default function Chat({ location }) {
   const [users, setUsers] = useState('');
   const [message, setMessage] = useState([])
   const [messages, setMessages] = useState([])
+  const [name, setName] = useState('')
+  const [foto, setFoto] = useState('')
+
   const ENDPOINT = 'localhost:3333'
 
-  const name = localStorage.getItem('name')
-  const foto = localStorage.getItem('foto_url')
-  console.log(name)
+ 
+
+
+
 
 
   useEffect(() => {
     const { username, room } = queryString.parse(location.search)
+    setName(localStorage.getItem('name'))
+    setFoto(localStorage.getItem('foto_url'))
+    
+
 
     socket = io(ENDPOINT)
     setUserName(username)
@@ -72,9 +80,9 @@ export default function Chat({ location }) {
     <div className="chat-container">
       <div className="content">
         <div className="users">
-          <Perfil foto={foto} name={name}/>
-          <FriendsList/>
-          <ConectedList />
+          <Perfil foto={foto} name={name} />
+          <FriendsList />
+          <ConectedList users={users} />
         </div>
         <div className="principal">
           <div className="chat">
@@ -82,7 +90,7 @@ export default function Chat({ location }) {
             <Messages messages={messages} username={username} />
           </div>
           <Input message={message} sendMessage={sendMessage} setMessage={setMessage} />
-          <ContainerUsers users={users} />
+
         </div>
 
       </div>

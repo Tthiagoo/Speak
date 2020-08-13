@@ -9,5 +9,6 @@ const upload = multer(uploadConfig)
 
 routes.post('/sessions',upload.single('foto'), SessionController.store)
 routes.post('/login', SessionController.create)
+routes.post('/chat',SessionController.index)
 
 module.exports = routes;
