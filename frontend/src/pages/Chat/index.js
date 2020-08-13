@@ -3,7 +3,7 @@ import { FaBars, FaCircle, FaSearch, FaPlusCircle } from 'react-icons/fa'
 import queryString from 'query-string';
 import io from 'socket.io-client'
 
-import api from '../../services/api';
+
 
 
 import './styles.css'
@@ -33,7 +33,7 @@ export default function Chat({ location }) {
   const [name, setName] = useState('')
   const [foto, setFoto] = useState('')
 
-  const[data,setData] = useState({})
+  
 
   const ENDPOINT = 'localhost:3333'
 
@@ -54,7 +54,7 @@ export default function Chat({ location }) {
 
     socket.on("responseData",(response)=>{
       const {foto_url, name, bio} = response
-      console.log(foto_url, name, bio)
+     
       socket.emit('join',{ username, room, foto_url, name, bio }, () => {
         console.log('join')
       })
@@ -82,6 +82,7 @@ export default function Chat({ location }) {
     });
 
     socket.on("roomData", ({ users }) => {
+      console.log('roomData')
       console.log(users)
       setUsers(users);
       

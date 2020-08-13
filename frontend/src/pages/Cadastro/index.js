@@ -70,6 +70,7 @@ export default function Cadastro() {
             onChange={e => setUserName(e.target.value)}
           />
           <input placeholder="Sua Senha"
+            type="password"
             value={senha}
             onChange={e => setSenha(e.target.value)}
           />

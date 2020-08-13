@@ -23,11 +23,11 @@
 #conected ul li .conected-list-users .conected-list-users-photo{
 	width: 50px;
 	height: 50px;
-	
+	background-size: cover;
 	border-radius: 50%;
 }
 .info-user{
-  margin-top: 8px;
+  margin-top: 13px;
 	margin-left: 8px;
 	max-width: 240px;
   width: 100%;

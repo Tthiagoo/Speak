@@ -4,13 +4,11 @@ import queryString from 'query-string';
 
 import { FaCircle } from 'react-icons/fa'
 
-import api from '../../../../services/api'
+
 
 import './styles.css';
 
 export default function ContainerUsers({ users}) {
-
-
 
   return (
     <div>
@@ -18,20 +16,19 @@ export default function ContainerUsers({ users}) {
         users
           ? (
             <ul>
-              {users.map(({ username}) => (
+              {users.map(({ username, bio, foto_url}) => (
 
                 <li key={username}>
 
-
                   <div className="conected-list-users">
-                    <div className="conected-list-users-photo"> </div>
+                    <div className="conected-list-users-photo" style={{ backgroundImage: `url(${foto_url})` }}></div>
                     <div className="info-user">
                       <span className="conected-list-user-name">{username}</span>
-                      <span className="conected-list-user-description"></span>
+                      <span className="conected-list-user-description">{bio}</span>
                     </div>
                     <div className="info-status">
-                      <FaCircle size={10} color={"yellow"} className="status-circle" />
-                      <span>2 min</span>
+                      <FaCircle size={10} color={"green"} className="status-circle" />
+                      
                     </div>
                   </div>
                   <div className="linha"></div>

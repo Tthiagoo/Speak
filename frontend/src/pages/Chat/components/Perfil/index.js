@@ -55,15 +55,17 @@ export default function Perfil({ foto, name }) {
       <div id="perfil-config">
         <FaBars size={23} color={"white"} onClick={handleClick} id="FaBars" />
         <Menu id="simple-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
-          <MenuItem onClick={handleClose}>Editar Perfil</MenuItem>
-          <MenuItem onClick={handleClose, handleModalOpen}>Criar Sala</MenuItem>
+          <MenuItem onClick={handleClose}>Editar Perfil (Em Breve)</MenuItem>
+          <MenuItem onClick={handleClose}>Configurações(Em Breve)</MenuItem>
+          <MenuItem onClick={handleClose}>Amizades(Em Breve)</MenuItem>
+          <MenuItem onClick={handleClose}>Criar Sala(Em Breve)</MenuItem>
           <ModalSala open={open} close={handleModalClose}/>
         </Menu>
 
 
       </div>
       <div id="perfil-search">
-        <input type="text" placeholder="Procure alguem na sala" />
+        <input type="text" placeholder="Procure alguem na sala (Em breve)" />
         <FaSearch id="search" size={15} />
       </div>
     </div>

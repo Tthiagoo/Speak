@@ -12,6 +12,7 @@ export default function FriendsList() {
       <div id="friends-list">
         <ul>
           <li >
+          <h5>[ Funcionalidade ainda em construção  ]</h5>
             <div className="friends-list-photo"><FaCircle size={10} color={"green"} className={"status-user"} /></div>
           </li>
         </ul>

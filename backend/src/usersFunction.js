@@ -1,15 +1,18 @@
 const users = [];
 
-const addUser =({id,username,room})=>{
+const addUser =({id,username,room, foto_url, name, bio})=>{
   username = username
   room = room.trim().toLowerCase()
+  foto_url = foto_url
+  name = name
+  bio = bio
 
   const userExist = users.find((user)=>user.username === username && user.room === room)
   if(userExist){
     return{error:'Usuario já esta logado'}
   }
 
-  const user = {id,username,room};
+  const user = {id,username,room, foto_url, name, bio};
   users.push(user)
   return{user}
 }

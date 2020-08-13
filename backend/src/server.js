@@ -23,8 +23,8 @@ io.on('connection', socket => {
   })
 
   socket.on('join', ({ username, room, foto_url, name, bio }, callback) => {
-    const { user, error } = addUser({ id: socket.id, username, room })
-    console.log(foto_url, name, bio)
+    const { user, error } = addUser({ id: socket.id, username, room, foto_url, name, bio })
+    //console.log(foto_url, name, bio)
     
     if (error) return callback(error)
 
@@ -41,6 +41,7 @@ io.on('connection', socket => {
 
   socket.on('sendMessage',(message,callback)=>{
     const user = getUser(socket.id);
+   
 
     io.to(user.room).emit('message',{user:user.username, text:message});
     io.to(user.room).emit('roomData',{room:user.room, users:getUserInRoom(user.room)});

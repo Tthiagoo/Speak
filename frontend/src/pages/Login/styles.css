@@ -64,3 +64,22 @@ img {
 	max-width: 200px;
 	max-height: 200px;
 }
+
+#password{
+	display: flex;
+	
+	flex-direction: column;
+	align-items: flex-end;
+}
+#password svg{
+	position: relative;
+	right: 20px;
+	bottom: 48px;
+}
+#password svg:hover{
+	cursor: pointer;
+
+}
+
+
+
