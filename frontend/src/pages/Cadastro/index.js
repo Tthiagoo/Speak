@@ -52,7 +52,7 @@ export default function Cadastro() {
             style={{ backgroundImage: `url(${preview})` }}
             className={foto ? 'has-foto' : ''}
           >
-            <input type="file" id="" onChange={event => setFoto(event.target.files[0])} />
+            <input type="file" id=""  onChange={event => setFoto(event.target.files[0])} />
             <FaCameraRetro size={16} color="#444" />
           </label>
           <p><b>Escolha sua foto</b></p>

@@ -49,7 +49,7 @@
 
 
 #foto{
-  border:1px dashed #101011;
+border:1px dashed #101011;
 background-size: cover;
 cursor: pointer;
 height: 300px;
@@ -62,6 +62,7 @@ align-items: center;
 label#foto.has-foto{
   border:0
 }
+
 
 label#foto.has-foto svg{
   display:none;

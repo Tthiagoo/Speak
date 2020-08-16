@@ -23,11 +23,11 @@ export default function Login() {
     let input = document.querySelector("#inputPassword");
     let eye = document.querySelector('#eye')
     let eyeSlash = document.querySelector('#Slash')
-    console.log(eyeSlash)
+  
 
     
    
-    if (input.getAttribute('type') == 'password') {
+    if (input.getAttribute('type') === 'password') {
       input.setAttribute("type", "text");
       eye.setAttribute('display','none')
       eyeSlash.setAttribute('display','inherit')
@@ -71,7 +71,7 @@ return (
   <div className="logon-container">
     <section className="form">
       <form onSubmit={handleSubmit}>
-        <a id="Logo"><img src="https://fontmeme.com/permalink/200525/75d0fecd03494c368addba67c07e43a1.png" alt="fontes-de-letras-cursivas" border="0" /></a>
+        <div id="Logo"><img src="http://localhost:3333/files/balao-speak.png" alt="fontes-de-letras-cursivas" border="0" /></div>
         <h1>Faça seu login</h1>
         <input placeholder="Seu Username"
           value={username}

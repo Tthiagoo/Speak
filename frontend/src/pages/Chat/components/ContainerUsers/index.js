@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import queryString from 'query-string';
+import React from 'react';
+
 
 
 import { FaCircle } from 'react-icons/fa'

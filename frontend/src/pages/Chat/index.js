@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FaBars, FaCircle, FaSearch, FaPlusCircle } from 'react-icons/fa'
+
 import queryString from 'query-string';
 import io from 'socket.io-client'
 

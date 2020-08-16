@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FaCircle, FaBars, FaSearch, FaHandHolding } from 'react-icons/fa'
+import { FaCircle, FaBars, FaSearch} from 'react-icons/fa'
 import './styles.css'
 
 import Select from "@material-ui/core/Select";
@@ -23,9 +23,9 @@ export default function Perfil({ foto, name }) {
   };
 
 
-  const handleModalOpen = () => {
+  /*const handleModalOpen = () => {
     setOpen(true);
-  };
+  };*/
 
   const handleModalClose = () => {
     setOpen(false);

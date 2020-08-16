@@ -1,7 +1,20 @@
 const User = require('../models/User')
 module.exports = {
   async store(req, res) {
-    const { filename } = req.file;
+    
+    let filename
+
+    req.file ? ({filename}=req.file) : filename = 'perfil-padrao.png'
+  
+
+
+
+    /*let file
+    req.file ? file = ({filename} = req.file) : file = 'perfil-padrao.png'
+*/
+    
+
+
     const { name, username, bio, foto, senha } = req.body
     let user = await User.findOne({ username })
     if (!user) {
@@ -9,10 +22,10 @@ module.exports = {
         name,
         username,
         bio,
-        foto: filename,
+        foto : filename,
         senha
       })
-      console.log('não existe')
+      
     }
 
     return res.json(user)

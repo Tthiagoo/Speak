@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaCircle } from 'react-icons/fa';
+
 import './styles.css'
 import ContainerUsers from '../ContainerUsers'
 
