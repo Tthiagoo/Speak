@@ -1,5 +1,6 @@
 import React from 'react'
 import './styles.css';
+import Grow from "@material-ui/core/Grow";
 
 
 
@@ -10,21 +11,27 @@ export default function Msg({ message: { user, text }, username }) {
     sentByUser = true
   }
   return (
+
     sentByUser
       ? (
-        <div className="messageContainer justifyEnd" >
-          <div className="messageBox backgroundBlue">
-            <p className="messageText colorWhite">{text}</p>
+        <Grow in={true}>
+          <div className="messageContainer justifyEnd" >
+            <div className="messageBox backgroundBlue">
+              <p className="messageText colorWhite">{text}</p>
+            </div>
           </div>
-        </div>
+        </Grow>
       ) : (
-        <div className="messageContainer justifyStart">
-          <div className="messageBox backgroundLight">
-            <span className="sentText pl-10">{user}</span>
-            <p className="messageText colorDark">{text}</p>
-          </div>
+        <Grow in={true}>
+          <div className="messageContainer justifyStart">
+            <div className="messageBox backgroundLight">
+              <span className="sentText pl-10">{user}</span>
+              <p className="messageText colorDark">{text}</p>
+            </div>
 
-        </div>
+          </div>
+        </Grow>
       )
+
   )
 } 

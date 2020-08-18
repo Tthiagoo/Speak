@@ -1,0 +1,33 @@
+#RoomName {
+	margin-top: 5px;
+	border-radius: 10px;
+	width: 100%;
+	font-size: 20px;
+	padding: 8px;
+	background-color: rgb(207, 207, 207);
+	border: none;
+}
+
+#RoomButton {
+	width: 100%;
+	margin-top: 8px;
+	border-radius: 10px;
+	border: none;
+	height: 30px;
+	background-color: rgb(20, 63, 128);
+	color: white;
+}
+
+.makeStyles-paper-4{
+  background-color: rgb(214 211 211);
+    color: #101011;
+    box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 12px 17px 2px rgba(0, 0, 0, 0.14), 0px 5px 22px 4px rgba(0, 0, 0, 0.12);
+    
+    border-radius: 15px;
+    line-height: 50px;
+    width: 600px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

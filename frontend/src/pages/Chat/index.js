@@ -14,7 +14,7 @@ import Messages from './components/Messages';
 import Perfil from './components/Perfil'
 import FriendsList from './components/FriendsList'
 import ConectedList from './components/ConectedList'
-
+import Fade from "@material-ui/core/Fade";
 
 
 let socket
@@ -100,6 +100,7 @@ export default function Chat({ location }) {
   }
 
   return (
+    <Fade in={true} timeout={1000}>
     <div className="chat-container">
       <div className="content">
         <div className="users">
@@ -118,6 +119,6 @@ export default function Chat({ location }) {
 
       </div>
     </div>
-
+    </Fade>
   )
 }

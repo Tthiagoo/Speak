@@ -11,10 +11,10 @@
 
 .register-container .content {
   width: 100%;
-  padding: 50px;
-  background: #fcfcfc34;
+  padding: 40px;
+  background: #fcfcfc36;
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.39);
-  border-radius: 15px;
+  border-radius: 20px;
 
   display: flex;
   
@@ -30,7 +30,8 @@
 .register-container .content section {
   width: 100%;
   max-width: 380px;
-  margin-left: 15px;
+ 
+  
 }
 
 
@@ -75,8 +76,8 @@ label#foto.has-foto svg{
 .register-container .content form {
   width: 100%;
   max-width: 450px;
-  margin-right: 15px;
   
+  margin-left: 200px;
   
 } 
 
@@ -101,4 +102,9 @@ label#foto.has-foto svg{
 
 .register-container .content form .input-group input + input {
   margin-left: 8px;
+}
+
+
+.error{
+  color:red;
 }

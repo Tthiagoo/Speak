@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api'
 import io from 'socket.io-client'
+import Fade from "@material-ui/core/Fade";
 
 import { FaSignInAlt, FaEye, FaEyeSlash } from 'react-icons/fa'
 
@@ -61,13 +62,14 @@ async function handleSubmit(e) {
     socket.emit('infoUser', response.data)
 
   } catch (err) {
-    alert('error')
+    alert('Usuario e/ou senha incorretos')
 
   }
 }
 
 
 return (
+<Fade in={true} timeout={1000}>
   <div className="logon-container">
     <section className="form">
       <form onSubmit={handleSubmit}>
@@ -95,5 +97,6 @@ return (
       </form>
     </section>
   </div>
+  </Fade>
 )
 }

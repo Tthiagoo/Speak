@@ -23,9 +23,9 @@ export default function Perfil({ foto, name }) {
   };
 
 
-  /*const handleModalOpen = () => {
+  const handleModalOpen = () => {
     setOpen(true);
-  };*/
+  };
 
   const handleModalClose = () => {
     setOpen(false);
@@ -41,7 +41,7 @@ export default function Perfil({ foto, name }) {
           <span id="perfil-user-name">{name}</span>
 
           <div id="status">
-            <Select labelId="demo-simple-select-label" id="status-text">
+            <Select defaultValue={10} labelId="demo-simple-select-label" id="status-text">
               <MenuItem value={10}>Online  <FaCircle size={6} color={"green"} className="FaCircle" /></MenuItem>
               <MenuItem value={20}>Ausente  <FaCircle size={6} color={"yellow"} className="FaCircle" /></MenuItem>
               <MenuItem value={30}>Offline  <FaCircle size={6} color={"red"} className="FaCircle" /></MenuItem>
