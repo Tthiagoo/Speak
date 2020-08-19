@@ -1,19 +1,28 @@
 const users = [];
 
 const addUser =({id,username,room, foto_url, name, bio})=>{
-  username = username
-  room = room.trim().toLowerCase()
-  foto_url = foto_url
-  name = name
-  bio = bio
+  username
+  room 
+  foto_url
+  name
+  bio
 
   const userExist = users.find((user)=>user.username === username && user.room === room)
+  console.debug('userfunction',userExist)
+  const index = users.findIndex((user)=>user.id === id);
+  
+
   if(userExist){
-    return{error:'Usuario já esta logado'}
+    
+    users.splice(index,1)[0]
+    return{error:'Você ja esta logado, tente fazer o login novamente'}
+    
   }
 
   const user = {id,username,room, foto_url, name, bio};
   users.push(user)
+
+  
   return{user}
 }
 

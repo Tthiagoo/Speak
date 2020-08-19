@@ -11,32 +11,30 @@ const { addUser, getUser, getUserInRoom, removeUser } = require('./usersFunction
 
 
 
-io.on('connection', socket => {
+io.on('connection', socket => { 
   console.log('[SOCKET]nova conexão')
   socket.on('infoUser',(response)=>{
-    const data = response;
+    const data = response; 
     io.emit('responseData',data)
-    console.log('emitiu infoUser')
-    
-    
-    
   })
-
+  
+  
   socket.on('join', ({ username, room, foto_url, name, bio }, callback) => {
     const { user, error } = addUser({ id: socket.id, username, room, foto_url, name, bio })
-    //console.log(foto_url, name, bio)
+  
     
     if (error) return callback(error)
-
+    socket.join(user.room)
+    
     socket.emit('message',
      { user: 'admin', text: `${user.username},bem vindo na sala:${user.room}` })
     socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.username} has joined!` });
 
-    socket.join(user.room)
+   
 
     io.to(user.room).emit('roomData', { room: user.room, users: getUserInRoom(user.room) });
+   
     callback()
-
   });
 
   socket.on('sendMessage',(message,callback)=>{
@@ -44,15 +42,17 @@ io.on('connection', socket => {
    
 
     io.to(user.room).emit('message',{user:user.username, text:message});
+    
     io.to(user.room).emit('roomData',{room:user.room, users:getUserInRoom(user.room)});
     callback()
+    
 
   })
 
 
 
   socket.on('disconnect', () => {
-    console.log('Usuario desconectado')
+    
     const user = removeUser(socket.id);
 
     if(user) {

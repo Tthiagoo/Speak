@@ -32,6 +32,10 @@ module.exports = {
 
   },
 
+
+
+
+  
   async create(req, res) {
     const { username, senha } = req.body;
     let user = await User.findOne({ username, senha })
@@ -40,14 +44,9 @@ module.exports = {
     }
     return res.json(user)
   },
-  async index(req, res){
-    const {username} = req.body
-    let user = await User.findOne({username})
-    if(!user){
-      return res.status(400).json({erro:"usuario nao encontrado"})
-    }
-    return res.json(user)
-  }
+
+
+
 
 }
 

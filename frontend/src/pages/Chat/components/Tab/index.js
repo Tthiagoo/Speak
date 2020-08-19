@@ -3,9 +3,6 @@ import { FaTimesCircle } from 'react-icons/fa'
 import './styles.css'
 
 
-
-
-
 export default function Tab({ room }) {
   return (
 

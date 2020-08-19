@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,  } from 'react';
+import {useHistory } from 'react-router-dom';
 
 import queryString from 'query-string';
 import io from 'socket.io-client'
-
-
-
 
 import './styles.css'
 import Tab from './components/Tab'
@@ -16,14 +14,9 @@ import FriendsList from './components/FriendsList'
 import ConectedList from './components/ConectedList'
 import Fade from "@material-ui/core/Fade";
 
-
 let socket
 
-
-
-
 export default function Chat({ location }) {
-
 
   const [username, setUserName] = useState('')
   const [room, setRoom] = useState('')
@@ -31,64 +24,52 @@ export default function Chat({ location }) {
   const [message, setMessage] = useState([])
   const [messages, setMessages] = useState([])
   const [name, setName] = useState('')
-  const [foto, setFoto] = useState('')
-
+  const [foto_url, setFoto] = useState('')
   
 
+  const history = useHistory()
+ 
   const ENDPOINT = 'localhost:3333'
-
-
 
   useEffect(() => {
     const { username, room } = queryString.parse(location.search)
-    setName(localStorage.getItem('name'))
-    setFoto(localStorage.getItem('foto_url'))
-    
-    
-    socket = io(ENDPOINT)
     setUserName(username)
     setRoom(room)
-    
-    
-    
 
-    socket.on("responseData",(response)=>{
-      const {foto_url, name, bio} = response
-     
-      socket.emit('join',{ username, room, foto_url, name, bio }, () => {
-        console.log('join')
-      })
+    setName(localStorage.getItem('name'))
+    const localName = (localStorage.getItem('name'))
+
+    const localBio = (localStorage.getItem('bio'))
+
+    setFoto(localStorage.getItem('foto_url'))
+    const localFoto = (localStorage.getItem('foto_url'))
+    
+    socket = io(ENDPOINT)
+
+    socket.emit('join',{ username, room, foto_url:localFoto, name:localName, bio:localBio}, (error) => { 
+      if(error) {
+        alert(error);
+        socket.emit('disconnect')
+        socket.off()
+        history.push('/')
+      } 
+      
     })
-    
-    
-    
-    
-    
-    return () => {
-      socket.emit('disconnect')
-      socket.off()
-    }
 
   }, [ENDPOINT, location.search])
   
-    
-  
-
   useEffect(() => {
     
-
     socket.on('message', message => {
       setMessages(messages => [...messages, message]);
     });
 
     socket.on("roomData", ({ users }) => {
-      console.log('roomData')
-      console.log(users)
+      
       setUsers(users);
       
      
     });
-
     
   }, []);
 
@@ -98,13 +79,12 @@ export default function Chat({ location }) {
       socket.emit('sendMessage', message, () => setMessage(''))
     }
   }
-
   return (
     <Fade in={true} timeout={1000}>
     <div className="chat-container">
       <div className="content">
         <div className="users">
-          <Perfil foto={foto} name={name} />
+          <Perfil foto={foto_url} name={name} />
           <FriendsList />
           <ConectedList users={users}/>
         </div>
