@@ -1,4 +1,4 @@
-import React, { useEffect, useState,  } from 'react';
+import React, { useEffect, useState} from 'react';
 import {useHistory } from 'react-router-dom';
 
 import queryString from 'query-string';
@@ -68,11 +68,9 @@ export default function Chat({ location }) {
       
       setUsers(users);
       
-     
     });
     
   }, []);
-
   const sendMessage = (event) => {
     event.preventDefault()
     if (message) {

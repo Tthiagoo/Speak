@@ -66,7 +66,6 @@ form textarea {
   line-height: 60px;
   transition: filter 0.2s;
 }
-
 .button:hover {
   filter: brightness(90%);
 }

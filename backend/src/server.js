@@ -13,11 +13,7 @@ const { addUser, getUser, getUserInRoom, removeUser } = require('./usersFunction
 
 io.on('connection', socket => { 
   console.log('[SOCKET]nova conexão')
-  socket.on('infoUser',(response)=>{
-    const data = response; 
-    io.emit('responseData',data)
-  })
-  
+ 
   
   socket.on('join', ({ username, room, foto_url, name, bio }, callback) => {
     const { user, error } = addUser({ id: socket.id, username, room, foto_url, name, bio })
