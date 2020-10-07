@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api'
-import io from 'socket.io-client'
+
 import Fade from "@material-ui/core/Fade";
 import Modal2 from '../components/Modal'
 import { FaCheckCircle } from 'react-icons/fa'
@@ -14,8 +14,8 @@ let socket
 
 export default function Login() {
   const room = 'Main'
-  const ENDPOINT = 'localhost:3333'
-  socket = io(ENDPOINT)
+ 
+  
 
   /*const handleModalOpen = () => {
     setOpen(true);
@@ -56,7 +56,7 @@ export default function Login() {
   async function handleSubmit(e) {
     e.preventDefault()
     try {
-      socket = io(ENDPOINT)
+      
       const response = await api.post('login', { username, senha })
       localStorage.setItem('name', response.data.name)
       localStorage.setItem('username', response.data.username)
@@ -65,7 +65,7 @@ export default function Login() {
       //handleModalOpen()
       history.push(`/chat?username=${username}&room=${room}`)
    
-      socket.emit('infoUser', response.data)
+      
     } catch (err) {
       alert('Usuario e/ou senha incorretos')
 
@@ -78,7 +78,7 @@ export default function Login() {
       <div className="logon-container">
         <section className="form">
           <form onSubmit={handleSubmit}>
-            <div id="Logo"><img src="http://localhost:3333/files/balao-speak.png" alt="fontes-de-letras-cursivas" border="0" /></div>
+            <div id="Logo"><img src="https://speak-server.herokuapp.com/files/balao-speak.png" alt="fontes-de-letras-cursivas" border="0" /></div>
             <h1>Faça seu login</h1>
             <input placeholder="Seu Username"
               value={username}

@@ -8,7 +8,7 @@ const addUser =({id,username,room, foto_url, name, bio})=>{
   bio
 
   const userExist = users.find((user)=>user.username === username && user.room === room)
-  console.debug('userfunction',userExist)
+  
   const index = users.findIndex((user)=>user.id === id);
   
 

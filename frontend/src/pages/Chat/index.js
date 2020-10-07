@@ -14,7 +14,7 @@ import FriendsList from './components/FriendsList'
 import ConectedList from './components/ConectedList'
 import Fade from "@material-ui/core/Fade";
 
-let socket
+
 
 export default function Chat({ location }) {
 
@@ -28,8 +28,9 @@ export default function Chat({ location }) {
   
 
   const history = useHistory()
- 
-  const ENDPOINT = 'localhost:3333'
+  
+  const ENDPOINT = 'https://speak-server.herokuapp.com/'
+  const socket = io('https://speak-server.herokuapp.com/')
 
   useEffect(() => {
     const { username, room } = queryString.parse(location.search)
@@ -44,7 +45,7 @@ export default function Chat({ location }) {
     setFoto(localStorage.getItem('foto_url'))
     const localFoto = (localStorage.getItem('foto_url'))
     
-    socket = io(ENDPOINT)
+    
 
     socket.emit('join',{ username, room, foto_url:localFoto, name:localName, bio:localBio}, (error) => { 
       if(error) {
@@ -67,6 +68,7 @@ export default function Chat({ location }) {
     socket.on("roomData", ({ users }) => {
       
       setUsers(users);
+      console.log(users)
       
     });
     

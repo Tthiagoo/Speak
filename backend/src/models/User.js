@@ -16,7 +16,7 @@ toJSON:{
   }
 )
 UserSchema.virtual('foto_url').get(function () {
-  return `http://localhost:3333/files/${this.foto}`
+  return `https://speak-server.herokuapp.com/files/${this.foto}`
 })
 module.exports = mongoose.model('User', UserSchema)
 
