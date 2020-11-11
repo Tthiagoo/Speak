@@ -15,7 +15,7 @@ import ConectedList from './components/ConectedList'
 import Fade from "@material-ui/core/Fade";
 
 
-
+let socket
 export default function Chat({ location }) {
 
   const [username, setUserName] = useState('')
@@ -30,12 +30,14 @@ export default function Chat({ location }) {
   const history = useHistory()
   
   const ENDPOINT = 'https://speak-server.herokuapp.com/'
-  const socket = io('https://speak-server.herokuapp.com/')
+   
 
   useEffect(() => {
     const { username, room } = queryString.parse(location.search)
     setUserName(username)
     setRoom(room)
+    
+    socket = io(ENDPOINT)
 
     setName(localStorage.getItem('name'))
     const localName = (localStorage.getItem('name'))
