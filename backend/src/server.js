@@ -10,6 +10,7 @@ app.use(cors());
 
 const server = require('http').createServer(app)
 const io = require('socket.io').listen(server)
+
 app.use('/files', express.static(path.resolve(__dirname, '..', 'uploads')));
 app.use(routes)
 const PORT = process.env.PORT || 3333
