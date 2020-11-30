@@ -29,7 +29,7 @@ export default function Chat({ location }) {
 
   const history = useHistory()
 
-  const ENDPOINT = 'ws://https://speak-server.herokuapp.com/'
+  const ENDPOINT = 'https://speak-server.herokuapp.com/'
 
 
   useEffect(() => {
@@ -37,7 +37,7 @@ export default function Chat({ location }) {
     setUserName(username)
     setRoom(room)
 
-    socket = io(ENDPOINT, { transports: ['websocket'] })
+    socket = io(ENDPOINT)
 
     setName(localStorage.getItem('name'))
     const localName = (localStorage.getItem('name'))
