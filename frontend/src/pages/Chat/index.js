@@ -29,15 +29,16 @@ export default function Chat({ location }) {
 
   const history = useHistory()
 
-  const ENDPOINT = 'https://speak-server.herokuapp.com/'
+  const ENDPOINT = 'https://speak-server.herokuapp.com'
 
 
   useEffect(() => {
     const { username, room } = queryString.parse(location.search)
     setUserName(username)
     setRoom(room)
-
-    socket = io(ENDPOINT)
+    socket = io(ENDPOINT, {path:'/socket.io/' })
+    
+    
 
     setName(localStorage.getItem('name'))
     const localName = (localStorage.getItem('name'))
@@ -70,7 +71,7 @@ export default function Chat({ location }) {
     socket.on("roomData", ({ users }) => {
 
       setUsers(users);
-      console.log(users)
+      
 
     });
 

@@ -1,10 +1,9 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState} from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api'
 
 import Fade from "@material-ui/core/Fade";
-import Modal2 from '../components/Modal'
-import { FaCheckCircle } from 'react-icons/fa'
+
 
 import { FaSignInAlt, FaEye, FaEyeSlash } from 'react-icons/fa'
 
