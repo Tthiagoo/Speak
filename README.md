@@ -11,7 +11,7 @@ Speak é um chat simples criado para aproveitar todo poder que a ferramenta Sock
 
 ## :construction: Funcionalidadades
 
-Ainda existem diveras funcionalidades para serem implementadas, outras estão em funcionamento como por exemplo:
+Ainda existem diversas funcionalidades para serem implementadas, outras estão em funcionamento como por exemplo:
 
 - Listar usuarios Online;
 - Efetuar Cadastro;
